@@ -10,12 +10,12 @@ const showLyrics = document.getElementById('show-lyrics');
 //show song list and result on click
 searchBtn.addEventListener('click',function(){
     const searchInputValue = searchInput.value;
-    console.log(searchInputValue);
+    //console.log(searchInputValue);
 
     //get song data form api with fetch
     fetch('https://api.lyrics.ovh/suggest/'+searchInputValue+'')
     .then(res => res.json())
-    .then(data => setData(data));//console.log(data)
+    .then(data => setData(data));
 
     //show song list and result 
     showSongList.innerHTML='';
@@ -23,6 +23,7 @@ searchBtn.addEventListener('click',function(){
 
     const setData =  data =>{
         for (let i = 0; i < 10; i++) {
+            //console.log(data)
             const id = data.data[i].id;
             const title = data.data[i].title;
             const artist = data.data[i].artist.name;
